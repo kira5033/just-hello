@@ -22,5 +22,6 @@
                 "Tekirara\\JustHello\\HelloServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
