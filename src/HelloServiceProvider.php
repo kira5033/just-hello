@@ -3,7 +3,8 @@
 namespace Tekirara\JustHello;
 
 use Illuminate\Support\ServiceProvider;
-
+use Tekirara\JustHello\Hello;
+use Tekirara\JustHello\HelloInterface;
 /**
  * Class HelloServiceProvider
  */
@@ -16,6 +17,6 @@ class HelloServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('speakHello', Hello::class);
+        $this->app->bind(HelloInterface::class, Hello::class);
     }
 }

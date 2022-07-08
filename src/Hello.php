@@ -2,7 +2,9 @@
 
 namespace Tekirara\JustHello;
 
-class Hello
+use Tekirara\JustHello\HelloInterface;
+
+class Hello implements HelloInterface
 {
     public function __construct() {}
 
@@ -10,10 +12,28 @@ class Hello
         echo "Hello, World!" . PHP_EOL;
     }
 
-    public function say($text = null)
+    public function say($content = null)
     {
-        if($text) {
-            echo "You say : " . $text . PHP_EOL;
+        if($content) {
+            echo "You say : " . $content . PHP_EOL;
+        }
+    }
+
+    public function multiSay($content)
+    {
+        $sayQueue = [];
+        if(is_array($content))
+        {
+            $sayQueue = $content;
+        }
+        else
+        {
+            $sayQueue[] = $content;
+        }
+        
+        foreach($sayQueue as $text)
+        {
+            $this->say($text);
         }
     }
 }
